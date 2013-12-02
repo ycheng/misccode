@@ -1,0 +1,14 @@
+diff --git a/mm/vmscan.c b/mm/vmscan.c
+index 33dc256..df7ac0f 100644
+--- a/mm/vmscan.c
++++ b/mm/vmscan.c
+@@ -1924,7 +1924,8 @@ static void get_scan_count(struct mem_cgroup_zone *mz, struct scan_control *sc,
+ 		force_scan = true;
+ 
+ 	/* If we have no swap space, do not bother scanning anon pages. */
+-	if (!sc->may_swap || (nr_swap_pages <= 0)) {
++	if (!sc->may_swap || (nr_swap_pages <= 0) ||
++			! vmscan_swappiness(mz, sc)) {
+ 		noswap = 1;
+ 		fraction[0] = 0;
+ 		fraction[1] = 1;
