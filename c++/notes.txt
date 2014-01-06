@@ -1,0 +1,45 @@
+
+1. standard header to include c header
+
+	<cassert> <cinttypes> <csignal> <cstdio> <cwchar>
+	<ccomplex> <ciso646> <cstdalign> <cstdlib> <cwctype>
+	<cctype> <climits> <cstdarg> <cstring>
+	<cerrno> <clocale> <cstdbool> <ctgmath>
+	<cfenv> <cmath> <cstddef> <ctime>
+	<cfloat> <csetjmp> <cstdint> <cuchar>
+
+	ex:
+		#include <cstring> # will do something like #include <string.h>
+
+2. casting
+
+	- static cast: some like traditional C casting
+
+	- dynamic_cast: will do dynamic base / driver class checking
+	  for object. cast result will be null if casting failed.
+	  for reference casting, bad_cast exception will be throw.
+
+	- reinterpret_cast: just use the new type to interpretation the
+	  old value. ex: use (int *) to interpretate (char *)
+
+	- const_cast: to remove / add const to a variable.
+
+
+3. virtual function in class
+
+	When a function is declared virtual in a class, then the real function
+	to be call is determinated in run time.
+
+	The
+
+	ClassVirtualFunction.cpp
+
+
+	Rule:
+		1. don't call virtual function in constructor. (for the vtable
+		   might not been well constructed yet.
+		2. no virtual constructor, for it's constructor that's build vtable
+		   to make "virtual" works.
+		3. virtual destructor is necessary (expecially when you need to
+		   releae memory. (to be confirmed)
+
