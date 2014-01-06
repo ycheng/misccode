@@ -40,6 +40,6 @@
 		   might not been well constructed yet.
 		2. no virtual constructor, for it's constructor that's build vtable
 		   to make "virtual" works.
-		3. virtual destructor is necessary (expecially when you need to
-		   releae memory. (to be confirmed)
-
+		3. virtual destructor is necessary if you want your code to be strong.
+                   Or delete in base won't call descructor in drived.
+		   (check ClassVirtualDestructor.cpp ClassVirtualDestructorWrong.cpp)
