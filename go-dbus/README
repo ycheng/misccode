@@ -1,0 +1,4 @@
+on ubuntu, you need to install package:
+
+	golang-dbus-dev
+
