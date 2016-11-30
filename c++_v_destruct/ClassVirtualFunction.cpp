@@ -59,6 +59,7 @@ int main() {
 
     // dynamic 
     showFooByPtr(&f1); 
+    cout << endl;
     showFooByPtr(&f2);
     cout << endl;
  
