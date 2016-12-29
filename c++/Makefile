@@ -1,10 +1,12 @@
 all: stod setlocale
 
 stod: stod.cpp
-	g++ -std=c++11 stod.cpp -o stod
+	gcc cstod.c -c
+	g++ -c -std=c++11 stod.cpp -Wall
+	g++ -g -std=c++11 cstod.o stod.o -o stod -Wall
 
 setlocale: setlocale.cpp
-	g++ setlocale.cpp -o setlocale
+	g++ -g setlocale.cpp -o setlocale -Wall
 
 clean:
-	rm stod setlocale
+	rm stod setlocale *.o
