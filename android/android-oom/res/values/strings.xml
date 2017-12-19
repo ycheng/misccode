@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">OOM</string>
+    <string name="action_settings">Settings</string>
+    <string name="oom_title">OOM, Maga Byte To allocate:</string>
+
+</resources>
