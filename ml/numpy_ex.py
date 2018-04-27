@@ -1,7 +1,7 @@
 import numpy as np
 
-def line():
-    print("-" * 50)
+def line(msg=""):
+    print("=" * 20, msg, "=" * 20)
 
 ar = np.array([1,2,3])
 print(ar)
@@ -26,13 +26,9 @@ print("np.eye / np.identity: identity matrix")
 
 
 # Boolean Indexing
+# Fancy Indexing
 
 line()
 
-s1 = pd.Series([1,2, np.nan, 44, 1])
-print(type(s1))
-print(s1)
-print(s1 * 3)
-print(3 * s1)
 
 line()
