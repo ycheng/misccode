@@ -5,21 +5,6 @@ import numpy as np
 def line():
     print("-" * 50)
 
-ar = np.array([1,2,3])
-print(ar)
-print(2 * ar)
-print(ar * 2)
-
-line()
-
-s1 = pd.Series([1,2,3, np.nan, 44, 1])
-print(type(s1))
-print(s1)
-print(s1 * 3)
-print(3 * s1)
-
-line()
-
 s2 = pd.Series(['4 cups', '1 cpu', '2 large', '1 can'], index=['Flour', 'Milk', 'Eggs', 'Spam'])
 print(s2)
 
