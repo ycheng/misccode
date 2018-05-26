@@ -9,7 +9,7 @@ print(2 * ar)
 print(ar * 2)
 print("ndim", ar.ndim)
 print("shape", ar.shape)
-print("dtyoe", ar.dtype)
+print("dtype", ar.dtype)
 
 print("np.zeros((2,3)):") # similar to np.empty()
 print(np.zeros((2,3)))
