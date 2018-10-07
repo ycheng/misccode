@@ -16,7 +16,7 @@ public:
     virtual void showV() {
         cout << "Foo2's showV" << endl; 
     } 
-    virtual ~Foo2() {
+    virtual ~Foo2() { // virtual here can be skipped, and it still behave correctly.
         cout << "Foo2's descructor" << endl;
     }
 }; 

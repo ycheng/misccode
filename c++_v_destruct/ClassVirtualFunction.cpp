@@ -58,26 +58,33 @@ int main() {
     Foo2 f2; 
 
     // dynamic 
+    cout << "Foo1 obj" << endl;
     showFooByPtr(&f1); 
     cout << endl;
+    cout << "Foo2 obj, use Foo1 Ptr" << endl;
     showFooByPtr(&f2);
     cout << endl;
  
     // dynamic 
+    cout << "Foo1 obj" << endl;
     showFooByRef(f1); 
+    cout << "Foo2 obj, use Foo2 Ref" << endl;
     showFooByRef(f2);
     cout << endl; 
 
     // static
+    cout << "Foo1 obj" << endl;
     f1.showR(); 
     f1.showV(); 
     f1.showV2(); 
     f1.showV3(); 
+    cout << "Foo2 obj" << endl;
     f2.showR(); 
     f2.showV(); 
     f2.showV2(); 
     f2.showV3(); 
 
     cout << endl; 
+    cout << "before return 0 from main, no more output after here from main." << endl;
     return 0;
 }
