@@ -1,0 +1,3 @@
+
+* l-value: locator value (https://www.learncpp.com/cpp-tutorial/15-2-rvalue-references/)
+* r-value: everything not l-value...
