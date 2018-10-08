@@ -1,1 +1,4 @@
 - quick sort in c++11/c++14
+- uniform initializer
+- lambda
+- smart pointer
