@@ -5,7 +5,7 @@
 // std::vector is a template class that encapsulate a dynamic array1,
 // stored in the heap, that grows and shrinks automatically if elements
 // are added or removed.
-int
+void
 demo_vector() {
     std::vector<int> v {1, 2, 3};
     std::cout << "Hello World !" << std::endl;
@@ -38,4 +38,5 @@ demo_array() {
 int main() {
     demo_vector();
     demo_array();
+    return 0;
 }
