@@ -26,9 +26,26 @@ void log(T first, Args ... args) {
 }
  
  
-int main() {
+int
+demo1() {
 	log(2, 3.4, "aaa");
     // current output "2, 3.4, aaa,"
     // TODO: how to output "2, 3.4, aaa"
 	return 0;
+}
+
+template <typename... T>
+struct arity {
+    constexpr static int value = sizeof...(T);
+    /// sizeof...: Returns the number of elements in a parameter pack.
+};
+
+void
+demo2() {
+    std::cout << arity<char, short>::value << std::endl;
+}
+int
+main() {
+    demo1();
+    demo2();
 }
