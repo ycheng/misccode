@@ -1,4 +1,6 @@
-all: stod setlocale
+BINS=stod setlocale sizeof
+
+all: $(BINS)
 
 stod: stod.cpp
 	gcc cstod.c -c
@@ -8,5 +10,8 @@ stod: stod.cpp
 setlocale: setlocale.cpp
 	g++ -g setlocale.cpp -o setlocale -Wall
 
+sizeof: sizeof.cpp
+	g++ sizeof.cpp -o sizeof -Wall
+
 clean:
-	rm stod setlocale *.o
+	rm *.o $(BINS)
