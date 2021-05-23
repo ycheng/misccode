@@ -32,11 +32,11 @@ def read_residency():
 
     return cpu, system
 
-print("low power residency in us")
-print("cpu, system")
+title = "(cpu, system): low power residency in us"
 
 while True:
+    print(title)
     for i in range(10):
-        time.sleep(1)
         print(read_residency())
+        time.sleep(1)
 
