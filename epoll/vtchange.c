@@ -1,11 +1,9 @@
-
-
 #include <fcntl.h>
 #include <stdio.h>
 #include <sys/epoll.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-
+#include <time.h>
 #include <unistd.h>
 
 #define MAX_EVENTS 10
@@ -16,7 +14,7 @@ int main() {
 
 
 	tty_active_fd = open("/sys/class/tty/tty0/active", O_RDONLY|O_NOCTTY|O_CLOEXEC);
-	printf("tty_active_fd %i\n", tty_active_fd);
+	// printf("tty_active_fd %i\n", tty_active_fd);
 
 	int epoll_fd = epoll_create1(EPOLL_CLOEXEC);
 	if (epoll_fd == -1) {
@@ -43,16 +41,20 @@ int main() {
 	int event_count;
 	while (1 == 1) {
 		event_count = epoll_wait(epoll_fd, events, MAX_EVENTS, 30000);
-		printf("%d ready events\n", event_count);
+		// printf("%d ready events\n", event_count);
 		for(int i = 0; i < event_count; i++) {
 			size_t bytes_read;
 			char read_buffer[READ_SIZE + 1];
-			printf("Reading file descriptor '%d' -- ", events[i].data.fd);
+
+			time_t timep;
+
 			lseek(events[i].data.fd, 0, SEEK_SET);
 			bytes_read = read(events[i].data.fd, read_buffer, READ_SIZE);
-			printf("%zd bytes read.\n", bytes_read);
+
+			time(&timep);
 			read_buffer[bytes_read] = '\0';
-			printf("Read '%s'\n", read_buffer);
+			
+			printf("Time: %sVT: %s", ctime(&timep), read_buffer);
 		}
 	}
 
@@ -60,6 +62,8 @@ int main() {
 		fprintf(stderr, "Failed to close epoll file descriptor\n");
 		return 1;
 	}
+
+	close(tty_active_fd);
 
 	return 0;
 }
