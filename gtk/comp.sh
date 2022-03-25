@@ -1,15 +1,24 @@
 #! /bin/bash
 set -x
 
-GTK=gtk+-3.0
-# GTK=gtk4
+GTK3=gtk+-3.0
+GTK4=gtk4
 ATK=atk
 
 gcc \
-	$( pkg-config --cflags $GTK )  \
+	$( pkg-config --cflags $GTK4 )  \
+	$( pkg-config --cflags $ATK )  \
+	-o ex-3-gtk4 ex-3-gtk4.c \
+	$( pkg-config --libs $GTK4 ) \
+	$( pkg-config --libs $ATK )
+
+exit
+
+gcc \
+	$( pkg-config --cflags $GTK3 )  \
 	$( pkg-config --cflags $ATK )  \
 	-o ex-3 ex-3.c \
-	$( pkg-config --libs $GTK ) \
+	$( pkg-config --libs $GTK3 ) \
 	$( pkg-config --libs $ATK )
 
 exit
