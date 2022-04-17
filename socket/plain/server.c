@@ -4,6 +4,7 @@
 #include <netinet/in.h>
 #include <stdlib.h>
 #include <strings.h>
+#include <unistd.h>
 
 
 int main( int argc, char *argv[] )
